@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>SwipyEat — Transform Your Restaurant Today</title>
+  <style>
+    /* =============================================
+       RESET & BASE
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #f4f4f4;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      color: #1a1a1a;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    /* =============================================
+       WRAPPER
+    ============================================= */
+    .email-wrapper {
+      max-width: 640px;
+      margin: 40px auto;
+      background: #ffffff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+    }
+
+    /* =============================================
+       TOP BAR
+    ============================================= */
+    .top-bar {
+      background: #1a1a1a;
+      padding: 10px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+    }
+    .top-bar a { color: #ff4d00; font-weight: 600; }
+
+    /* =============================================
+       HEADER
+    ============================================= */
+    .header {
+      background: #ff4d00;
+      padding: 28px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-icon {
+      width: 44px;
+      height: 44px;
+      background: #ffffff;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+    .logo-text {
+      font-size: 24px;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.5px;
+    }
+    .logo-text span { color: rgba(255,255,255,0.65); }
+    .header-badge {
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.35);
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 999px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* =============================================
+       HERO
+    ============================================= */
+    .hero {
+      background: linear-gradient(145deg, #ff4d00 0%, #e03d00 60%, #b83200 100%);
+      padding: 56px 40px 64px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 260px; height: 260px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -40px;
+      width: 300px; height: 300px;
+      background: rgba(0,0,0,0.06);
+      border-radius: 50%;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 999px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: 40px;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+    .hero h1 .highlight {
+      background: rgba(255,255,255,0.2);
+      border-radius: 6px;
+      padding: 2px 10px;
+    }
+    .hero p {
+      font-size: 17px;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.65;
+      max-width: 460px;
+      margin: 0 auto 36px;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #ffffff;
+      color: #ff4d00;
+      font-size: 17px;
+      font-weight: 800;
+      padding: 16px 40px;
+      border-radius: 8px;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+      transition: transform 0.2s;
+    }
+    .hero-cta:hover { transform: translateY(-2px); }
+    .hero-cta .arrow {
+      width: 22px; height: 22px;
+      background: #ff4d00;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: white;
+      font-size: 13px;
+      font-weight: 900;
+    }
+    .hero-subtext {
+      margin-top: 20px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* =============================================
+       SOCIAL PROOF BAR
+    ============================================= */
+    .social-proof {
+      background: #1a1a1a;
+      padding: 18px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .proof-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.75);
+      font-size: 13px;
+    }
+    .proof-dot {
+      width: 8px; height: 8px;
+      background: #ff4d00;
+      border-radius: 50%;
+    }
+    .proof-item strong { color: #ffffff; font-weight: 700; }
+
+    /* =============================================
+       INTRO SECTION
+    ============================================= */
+    .intro {
+      padding: 48px 40px 36px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #ff4d00;
+      margin-bottom: 12px;
+    }
+    .intro h2 {
+      font-size: 28px;
+      font-weight: 800;
+      color: #1a1a1a;
+      line-height: 1.3;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+    .intro p {
+      font-size: 16px;
+      color: #555;
+      line-height: 1.7;
+    }
+
+    /* =============================================
+       FEATURE CARDS
+    ============================================= */
+    .features {
+      padding: 16px 40px 40px;
+    }
+    .features-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: #1a1a1a;
+      margin-bottom: 24px;
+      letter-spacing: -0.3px;
+    }
+    .feature-card {
+      display: flex;
+      gap: 20px;
+      padding: 24px;
+      border-radius: 12px;
+      margin-bottom: 16px;
+      background: #fafafa;
+      border: 1px solid #efefef;
+      transition: box-shadow 0.2s;
+    }
+    .feature-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+    .feature-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+    .feature-icon.orange { background: #fff1ec; }
+    .feature-icon.green  { background: #eef7e6; }
+    .feature-icon.blue   { background: #e8f0fe; }
+    .feature-body h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 6px;
+    }
+    .feature-body p {
+      font-size: 14px;
+      color: #777;
+      line-height: 1.6;
+    }
+    .feature-link {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #ff4d00;
+    }
+    .feature-link::after { content: ' →'; }
+
+    /* =============================================
+       STATS STRIP
+    ============================================= */
+    .stats-strip {
+      background: linear-gradient(135deg, #ff4d00, #e03d00);
+      padding: 36px 40px;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .stat-item { text-align: center; }
+    .stat-number {
+      font-size: 36px;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1;
+      letter-spacing: -1px;
+    }
+    .stat-label {
+      font-size: 13px;
+      color: rgba(255,255,255,0.75);
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    /* =============================================
+       TESTIMONIAL
+    ============================================= */
+    .testimonial {
+      padding: 48px 40px;
+      background: #fffaf8;
+      border-top: 1px solid #f0f0f0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .testimonial-quote {
+      font-size: 18px;
+      font-style: italic;
+      color: #333;
+      line-height: 1.7;
+      margin-bottom: 24px;
+      position: relative;
+      padding-left: 24px;
+      border-left: 4px solid #ff4d00;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .author-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ff4d00, #e03d00);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 800;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .author-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+    .author-role {
+      font-size: 13px;
+      color: #888;
+      margin-top: 2px;
+    }
+    .stars {
+      color: #ff4d00;
+      font-size: 16px;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+
+    /* =============================================
+       PRICING HIGHLIGHT
+    ============================================= */
+    .pricing {
+      padding: 48px 40px;
+    }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      margin-top: 28px;
+    }
+    .plan-card {
+      border: 2px solid #efefef;
+      border-radius: 14px;
+      padding: 24px 20px;
+      text-align: center;
+      position: relative;
+    }
+    .plan-card.popular {
+      border-color: #ff4d00;
+      background: #ff4d00;
+      color: white;
+    }
+    .popular-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #ffffff;
+      color: #ff4d00;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 999px;
+      border: 2px solid #ff4d00;
+      white-space: nowrap;
+    }
+    .plan-name {
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+    .plan-card:not(.popular) .plan-name { color: #888; }
+    .plan-price {
+      font-size: 32px;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -1px;
+    }
+    .plan-card:not(.popular) .plan-price { color: #5e9d01; }
+    .plan-price sub {
+      font-size: 16px;
+      font-weight: 700;
+      vertical-align: sub;
+    }
+    .plan-period {
+      font-size: 12px;
+      opacity: 0.6;
+      margin-top: 4px;
+    }
+    .plan-desc {
+      font-size: 12px;
+      line-height: 1.5;
+      margin: 12px 0 16px;
+      opacity: 0.7;
+    }
+    .plan-btn {
+      display: block;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      text-align: center;
+    }
+    .plan-card.popular .plan-btn {
+      background: #ffffff;
+      color: #ff4d00;
+    }
+    .plan-card:not(.popular) .plan-btn {
+      background: #ff4d00;
+      color: #ffffff;
+    }
+    .pricing-note {
+      text-align: center;
+      font-size: 13px;
+      color: #999;
+      margin-top: 20px;
+    }
+    .pricing-note strong { color: #ff4d00; }
+
+    /* =============================================
+       FINAL CTA
+    ============================================= */
+    .final-cta {
+      background: #1a1a1a;
+      padding: 56px 40px;
+      text-align: center;
+    }
+    .final-cta .eyebrow {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #ff4d00;
+      margin-bottom: 16px;
+    }
+    .final-cta h2 {
+      font-size: 32px;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+    .final-cta p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 36px;
+      line-height: 1.6;
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #ff4d00;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 800;
+      padding: 16px 36px;
+      border-radius: 8px;
+    }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 16px 36px;
+      border-radius: 8px;
+      border: 2px solid rgba(255,255,255,0.2);
+    }
+    .cta-trust {
+      margin-top: 24px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* =============================================
+       OFFER BANNER
+    ============================================= */
+    .offer-banner {
+      background: linear-gradient(135deg, #5e9d01, #4a8000);
+      padding: 28px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .offer-text {
+      color: #ffffff;
+    }
+    .offer-text .label {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 6px;
+    }
+    .offer-text h3 {
+      font-size: 20px;
+      font-weight: 900;
+    }
+    .offer-text p {
+      font-size: 13px;
+      opacity: 0.8;
+      margin-top: 4px;
+    }
+    .offer-btn {
+      background: #ffffff;
+      color: #5e9d01;
+      font-size: 14px;
+      font-weight: 800;
+      padding: 12px 28px;
+      border-radius: 8px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    .footer {
+      background: #111111;
+      padding: 36px 40px;
+    }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+      flex-wrap: wrap;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-brand .logo-text { font-size: 20px; }
+    .footer-brand p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      margin-top: 8px;
+      max-width: 200px;
+      line-height: 1.5;
+    }
+    .footer-links { display: flex; gap: 40px; flex-wrap: wrap; }
+    .footer-col h4 {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 12px;
+    }
+    .footer-col a {
+      display: block;
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 8px;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: #ff4d00; }
+    .footer-bottom {
+      margin-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255,255,255,0.25);
+    }
+    .footer-unsubscribe {
+      font-size: 12px;
+      color: rgba(255,255,255,0.25);
+    }
+    .footer-unsubscribe a {
+      color: rgba(255,255,255,0.4);
+      text-decoration: underline;
+    }
+
+    /* =============================================
+       RESPONSIVE
+    ============================================= */
+    @media (max-width: 580px) {
+      .email-wrapper { margin: 0; border-radius: 0; }
+      .hero h1 { font-size: 28px; }
+      .header { padding: 20px 24px; }
+      .hero, .intro, .features, .pricing, .testimonial, .final-cta, .footer { padding-left: 24px; padding-right: 24px; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .stats-strip { flex-direction: column; gap: 16px; }
+      .social-proof { gap: 16px; flex-direction: column; align-items: flex-start; padding: 16px 24px; }
+      .footer-top { flex-direction: column; }
+      .footer-links { flex-direction: column; gap: 20px; }
+      .top-bar { flex-direction: column; gap: 4px; text-align: center; }
+      .offer-banner { flex-direction: column; }
+      .cta-buttons { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="email-wrapper">
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <span>Monthly Restaurant Digest — May 2026</span>
+    <span>View in browser: <a href="https://swipyeat.com">swipyeat.com</a></span>
+  </div>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-logo">
+      <div class="logo-icon">🍽️</div>
+      <div class="logo-text">Swipy<span>Eat</span></div>
+    </div>
+    <div class="header-badge">May 2026</div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">Limited Time Offer — Act Fast</div>
+    <h1>
+      Run Your Restaurant<br/>
+      <span class="highlight">Smarter, Not Harder.</span>
+    </h1>
+    <p>
+      Stop losing orders. Stop paying extra staff to fix mistakes. SwipyEat connects your waiters, kitchen, and management in one real-time platform — so every shift runs like a well-oiled machine.
+    </p>
+    <a href="https://swipyeat.com/sign-up" class="hero-cta">
+      Start Your Free 14-Day Trial
+      <span class="arrow">→</span>
+    </a>
+    <div class="hero-subtext">No credit card required &nbsp;·&nbsp; Setup in under 10 minutes &nbsp;·&nbsp; Cancel anytime</div>
+  </div>
+
+  <!-- SOCIAL PROOF BAR -->
+  <div class="social-proof">
+    <div class="proof-item"><div class="proof-dot"></div><span><strong>1,000+</strong> restaurants worldwide</span></div>
+    <div class="proof-item"><div class="proof-dot"></div><span><strong>4.9 / 5</strong> average rating</span></div>
+    <div class="proof-item"><div class="proof-dot"></div><span><strong>30%</strong> fewer order errors on day 1</span></div>
+  </div>
+
+  <!-- INTRO -->
+  <div class="intro">
+    <div class="section-label">Why restaurants choose SwipyEat</div>
+    <h2>Your staff is working hard.<br/>SwipyEat makes it count.</h2>
+    <p>
+      Every misheard order, scribbled ticket, or missed table costs you money and customer trust. SwipyEat digitizes your entire service flow — from the moment a customer sits down to the second their food is plated — reducing errors, speeding up service, and giving you real-time visibility over everything.
+    </p>
+  </div>
+
+  <!-- FEATURES -->
+  <div class="features">
+    <div class="features-title">Everything your restaurant needs — in one platform</div>
+
+    <!-- Feature 1 -->
+    <div class="feature-card">
+      <div class="feature-icon orange">📱</div>
+      <div class="feature-body">
+        <h3>Digital Menu Builder</h3>
+        <p>Create stunning, fully customizable menus with photos, videos, and real-time pricing. Update any dish in seconds — no printing costs, no outdated cards.</p>
+        <a href="https://swipyeat.com/features#digital-menu" class="feature-link">Explore Digital Menus</a>
+      </div>
+    </div>
+
+    <!-- Feature 2 -->
+    <div class="feature-card">
+      <div class="feature-icon green">🧾</div>
+      <div class="feature-body">
+        <h3>POS + Order Management</h3>
+        <p>A lightning-fast Point of Sale that syncs orders directly to the kitchen. No more shouting across the pass, no more lost tickets. Orders arrive instantly, correctly, every time.</p>
+        <a href="https://swipyeat.com/features#order-management" class="feature-link">See POS in Action</a>
+      </div>
+    </div>
+
+    <!-- Feature 3 -->
+    <div class="feature-card">
+      <div class="feature-icon blue">👨‍🍳</div>
+      <div class="feature-body">
+        <h3>Kitchen Display System (KDS)</h3>
+        <p>Give your kitchen team a clear, prioritized view of every incoming order. Color-coded timers, real-time updates, and zero paper tickets — so prep times drop and nothing gets missed.</p>
+        <a href="https://swipyeat.com/features#kds" class="feature-link">Discover KDS</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- STATS STRIP -->
+  <div class="stats-strip">
+    <div class="stat-item">
+      <div class="stat-number">30%</div>
+      <div class="stat-label">Fewer order errors</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">2×</div>
+      <div class="stat-label">Faster table turnover</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">1,000+</div>
+      <div class="stat-label">Active restaurants</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">10 min</div>
+      <div class="stat-label">Average setup time</div>
+    </div>
+  </div>
+
+  <!-- TESTIMONIAL -->
+  <div class="testimonial">
+    <div class="section-label">What our clients say</div>
+    <div class="stars">★★★★★</div>
+    <div class="testimonial-quote">
+      "We used to lose at least three orders per service shift. Since switching to SwipyEat, our kitchen is faster, our waiters are less stressed, and our customers keep coming back. It paid for itself in the first month."
+    </div>
+    <div class="testimonial-author">
+      <div class="author-avatar">KA</div>
+      <div>
+        <div class="author-name">Khalid Amrani</div>
+        <div class="author-role">Owner, Le Jardin Restaurant — Marrakech</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OFFER BANNER -->
+  <div class="offer-banner">
+    <div class="offer-text">
+      <div class="label">🔥 Special Offer</div>
+      <h3>Get 2 months FREE on any yearly plan</h3>
+      <p>Sign up before May 31st and lock in our best rate — save up to 989 Dh per year.</p>
+    </div>
+    <a href="https://swipyeat.com/sign-up" class="offer-btn">Claim Your Offer →</a>
+  </div>
+
+  <!-- PRICING -->
+  <div class="pricing">
+    <div class="section-label">Transparent Pricing</div>
+    <h2 style="font-size:24px;font-weight:800;color:#1a1a1a;letter-spacing:-0.3px;line-height:1.3;">
+      Pick the plan that fits your restaurant
+    </h2>
+    <p style="font-size:14px;color:#888;margin-top:8px;">All plans include a <strong style="color:#1a1a1a;">14-day free trial</strong> — no credit card required.</p>
+
+    <div class="pricing-grid">
+
+      <!-- Starter -->
+      <div class="plan-card">
+        <div class="plan-name">Starter</div>
+        <div class="plan-price">499<sub>Dh</sub></div>
+        <div class="plan-period">/ month</div>
+        <div class="plan-desc">Perfect for small cafés and single-location restaurants.</div>
+        <a href="https://swipyeat.com/sign-up?plan=starter" class="plan-btn">Get Started</a>
+      </div>
+
+      <!-- Premium -->
+      <div class="plan-card popular">
+        <div class="popular-badge">Most Popular</div>
+        <div class="plan-name">Premium</div>
+        <div class="plan-price">899<sub>Dh</sub></div>
+        <div class="plan-period">/ month</div>
+        <div class="plan-desc">POS + KDS + Loyalty for growing restaurants.</div>
+        <a href="https://swipyeat.com/sign-up?plan=premium" class="plan-btn">Free Trial</a>
+      </div>
+
+      <!-- Unlimited -->
+      <div class="plan-card">
+        <div class="plan-name">Unlimited</div>
+        <div class="plan-price">999<sub>Dh</sub></div>
+        <div class="plan-period">/ month</div>
+        <div class="plan-desc">Full suite for chains and multi-location brands.</div>
+        <a href="https://swipyeat.com/sign-up?plan=unlimited" class="plan-btn">Get Started</a>
+      </div>
+
+    </div>
+
+    <div class="pricing-note">
+      Need a custom quote for your brand? <strong><a href="https://swipyeat.com/company/contact" style="color:#ff4d00;">Talk to our team →</a></strong>
+    </div>
+  </div>
+
+  <!-- FINAL CTA -->
+  <div class="final-cta">
+    <div class="eyebrow">Ready to transform your service?</div>
+    <h2>Your next shift can be<br/>your best shift ever.</h2>
+    <p>Join over 1,000 restaurants already running smoother, serving faster, and growing bigger with SwipyEat. Start today — it only takes 10 minutes.</p>
+    <div class="cta-buttons">
+      <a href="https://swipyeat.com/sign-up" class="btn-primary">
+        Start Free Trial →
+      </a>
+      <a href="https://swipyeat.com/company/contact" class="btn-secondary">
+        Book a Demo
+      </a>
+    </div>
+    <div class="cta-trust">✓ Free 14-day trial &nbsp; ✓ No credit card &nbsp; ✓ Cancel anytime</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo-text" style="color:white;">Swipy<span style="color:rgba(255,255,255,0.45)">Eat</span></div>
+        <p>The all-in-one restaurant management platform built for modern dining.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="https://swipyeat.com/features">Features</a>
+          <a href="https://swipyeat.com/products">Products</a>
+          <a href="https://swipyeat.com/pricing">Pricing</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="https://swipyeat.com/company/contact">Contact</a>
+          <a href="https://swipyeat.com/sign-in">Sign In</a>
+          <a href="https://swipyeat.com/sign-up">Sign Up</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 SwipyEat. All rights reserved.</div>
+      <div class="footer-unsubscribe">
+        <a href="#">Unsubscribe</a> &nbsp;·&nbsp; <a href="#">Manage preferences</a>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /email-wrapper -->
+
+</body>
+</html>
