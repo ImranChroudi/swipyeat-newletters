@@ -18,16 +18,8 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ message: "Invalid email address." }, { status: 400 });
     }
 
-    const result = addSubscriber(email);
+    addSubscriber(email);
 
-    if (result.alreadyExists) {
-      return NextResponse.json(
-        { message: "This email is already subscribed." },
-        { status: 409 }
-      );
-    }
-
-    // Send welcome email — don't block the response if it fails
     sendWelcomeEmail(email).catch((err) =>
       console.error("[mailer] Failed to send welcome email:", err)
     );
