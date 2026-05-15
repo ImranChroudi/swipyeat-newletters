@@ -18,7 +18,12 @@ export function readSubscribers(): Subscriber[] {
 }
 
 export function writeSubscribers(subscribers: Subscriber[]): void {
-  fs.writeFileSync(DB_PATH, JSON.stringify(subscribers, null, 2));
+  try {
+    fs.writeFileSync(DB_PATH, JSON.stringify(subscribers, null, 2));
+  } catch {
+    // Vercel and other serverless environments have a read-only filesystem — log and continue
+    console.warn("[subscribers] Could not write subscribers file (read-only fs).");
+  }
 }
 
 export function addSubscriber(email: string): { success: boolean; alreadyExists: boolean } {

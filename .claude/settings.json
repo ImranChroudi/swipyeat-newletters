@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e \"const nm = require\\('./node_modules/nodemailer'\\); console.log\\(typeof nm.createTransport, Object.keys\\(nm\\).slice\\(0,10\\)\\)\")",
+      "Bash(node -e ' *)"
+    ]
+  }
+}
