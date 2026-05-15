@@ -20,9 +20,12 @@ export async function POST(req: NextRequest) {
 
     addSubscriber(email);
 
-    sendWelcomeEmail(email).catch((err) =>
-      console.error("[mailer] Failed to send welcome email:", err)
-    );
+    // Await so Vercel doesn't kill the function before the email is sent
+    try {
+      await sendWelcomeEmail(email);
+    } catch (err) {
+      console.error("[mailer] Failed to send welcome email:", err);
+    }
 
     return NextResponse.json(
       { message: "Subscribed successfully!" },

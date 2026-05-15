@@ -28,111 +28,149 @@ export async function sendWelcomeEmail(to: string): Promise<void> {
   <tr><td align="center">
   <table width="100%" style="max-width:600px;background:#ffffff;border-radius:20px;overflow:hidden;box-shadow:0 6px 32px rgba(0,0,0,0.09);">
 
-    <!-- ── HEADER ── -->
+    <!-- HEADER -->
     <tr>
       <td style="background:linear-gradient(135deg,#5c9b01 0%,#4a7f01 100%);padding:30px 40px;text-align:center;">
-        <img src="${SITE_URL}/logo-swipyeat.png" alt="SwipyEat" width="160" style="display:block;margin:0 auto;max-height:56px;object-fit:contain;" />
+        <img src="${SITE_URL}/logo-swipyeat.png" alt="SwipyEat" width="150" style="display:block;margin:0 auto;max-height:52px;object-fit:contain;" />
       </td>
     </tr>
-
-    <!-- orange accent bar -->
     <tr><td style="background:#ff4d00;height:4px;font-size:0;line-height:0;">&nbsp;</td></tr>
 
-    <!-- ── WELCOME ── -->
+    <!-- WELCOME -->
     <tr>
-      <td style="padding:40px 40px 32px;">
-        <h1 style="margin:0 0 10px;font-size:28px;font-weight:800;color:#111827;">Bienvenue à bord&nbsp;! 🎉</h1>
-        <p style="margin:0 0 24px;color:#6b7280;font-size:16px;line-height:1.75;">
+      <td style="padding:40px 40px 28px;">
+        <h1 style="margin:0 0 12px;font-size:30px;font-weight:800;color:#111827;line-height:1.2;">Bienvenue à bord&nbsp;! 🎉</h1>
+        <p style="margin:0 0 20px;color:#374151;font-size:16px;line-height:1.8;">
           Vous faites maintenant partie de la communauté <strong style="color:#5c9b01;">SwipyEat</strong>. Nous construisons le futur des menus restaurant — et vous serez les premiers à en entendre parler.
         </p>
-        <div style="background:#f4fae8;border-left:4px solid #5c9b01;border-radius:10px;padding:18px 22px;margin-bottom:8px;">
-          <p style="margin:0 0 6px;font-weight:700;color:#5c9b01;font-size:15px;">Qu'est-ce que SwipyEat ?</p>
-          <p style="margin:0;color:#374151;font-size:14px;line-height:1.75;">
-            SwipyEat remplace les menus papier par des QR codes intelligents. Les clients scannent le code à table, parcourent un menu digital élégant et commandent facilement — sans télécharger d'application.
+        <div style="background:#f4fae8;border-left:4px solid #5c9b01;border-radius:10px;padding:18px 22px;">
+          <p style="margin:0 0 6px;font-weight:800;color:#5c9b01;font-size:15px;">Qu'est-ce que SwipyEat ?</p>
+          <p style="margin:0;color:#374151;font-size:15px;line-height:1.75;">
+            SwipyEat remplace les menus papier par des QR codes intelligents. Les clients scannent le code à table, parcourent un menu digital élégant et commandent — sans télécharger d'application.
           </p>
         </div>
       </td>
     </tr>
 
-    <!-- ── SECTION DIVIDER ── -->
-    <tr><td style="padding:0 40px;"><hr style="border:none;border-top:1px solid #e5e7eb;margin:0;" /></td></tr>
+    <!-- DIVIDER -->
+    <tr><td style="padding:0 40px;"><hr style="border:none;border-top:1px solid #e5e7eb;" /></td></tr>
 
-    <!-- ── FEATURE 1 : Menu client ── -->
+    <!-- FEATURE 1 -->
     <tr>
-      <td style="padding:32px 40px 24px;">
-        <p style="margin:0 0 6px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#ff4d00;">Pour vos clients</p>
-        <h2 style="margin:0 0 10px;font-size:20px;font-weight:800;color:#111827;">📱 Menu digital &amp; Commande en ligne</h2>
-        <p style="margin:0 0 18px;color:#6b7280;font-size:14px;line-height:1.7;">
-          Vos clients scannent le QR code à table et accèdent instantanément à votre menu avec photos, descriptions et prix — en quelques secondes, sans friction.
-        </p>
-        <img src="${SITE_URL}/interfaceclient.png" alt="Interface client SwipyEat" width="220" style="display:block;margin:0 auto;border-radius:20px;box-shadow:0 8px 28px rgba(0,0,0,0.12);" />
+      <td style="padding:28px 40px;">
+        <table width="100%" cellpadding="0" cellspacing="0">
+          <tr>
+            <td style="vertical-align:top;padding-right:20px;">
+              <p style="margin:0 0 4px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#ff4d00;">Pour vos clients</p>
+              <h2 style="margin:0 0 8px;font-size:18px;font-weight:800;color:#111827;">📱 Menu digital</h2>
+              <p style="margin:0;color:#374151;font-size:14px;line-height:1.75;">
+                Vos clients scannent le QR code et accèdent instantanément à votre menu avec photos et prix — en quelques secondes, sans friction.
+              </p>
+            </td>
+            <td style="vertical-align:top;width:110px;">
+              <img src="${SITE_URL}/interfaceclient.png" alt="Interface client" width="100" style="border-radius:14px;box-shadow:0 4px 16px rgba(0,0,0,0.13);display:block;" />
+            </td>
+          </tr>
+        </table>
       </td>
     </tr>
 
-    <!-- ── SECTION DIVIDER ── -->
-    <tr><td style="padding:0 40px;"><hr style="border:none;border-top:1px solid #e5e7eb;margin:0;" /></td></tr>
+    <!-- DIVIDER -->
+    <tr><td style="padding:0 40px;"><hr style="border:none;border-top:1px solid #e5e7eb;" /></td></tr>
 
-    <!-- ── FEATURE 2 : Menu admin ── -->
+    <!-- FEATURE 2 -->
     <tr>
-      <td style="padding:32px 40px 24px;">
-        <p style="margin:0 0 6px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#5c9b01;">Gestion du menu</p>
-        <h2 style="margin:0 0 10px;font-size:20px;font-weight:800;color:#111827;">🍽️ Gérez vos plats facilement</h2>
-        <p style="margin:0 0 18px;color:#6b7280;font-size:14px;line-height:1.7;">
-          Ajoutez, modifiez ou désactivez vos articles en temps réel depuis votre tableau de bord. Les changements sont visibles immédiatement par vos clients — plus besoin de réimprimer.
-        </p>
-        <img src="${SITE_URL}/menuItems.png" alt="Gestion menu SwipyEat" width="520" style="display:block;margin:0 auto;border-radius:14px;box-shadow:0 8px 28px rgba(0,0,0,0.12);max-width:100%;" />
+      <td style="padding:28px 40px;">
+        <table width="100%" cellpadding="0" cellspacing="0">
+          <tr>
+            <td style="vertical-align:top;width:110px;padding-right:20px;">
+              <img src="${SITE_URL}/menuItems.png" alt="Gestion menu" width="100" style="border-radius:14px;box-shadow:0 4px 16px rgba(0,0,0,0.13);display:block;" />
+            </td>
+            <td style="vertical-align:top;">
+              <p style="margin:0 0 4px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#5c9b01;">Gestion du menu</p>
+              <h2 style="margin:0 0 8px;font-size:18px;font-weight:800;color:#111827;">🍽️ Gérez vos plats</h2>
+              <p style="margin:0;color:#374151;font-size:14px;line-height:1.75;">
+                Ajoutez, modifiez ou désactivez vos articles en temps réel. Les changements sont visibles immédiatement — plus besoin de réimprimer.
+              </p>
+            </td>
+          </tr>
+        </table>
       </td>
     </tr>
 
-    <!-- ── SECTION DIVIDER ── -->
-    <tr><td style="padding:0 40px;"><hr style="border:none;border-top:1px solid #e5e7eb;margin:0;" /></td></tr>
+    <!-- DIVIDER -->
+    <tr><td style="padding:0 40px;"><hr style="border:none;border-top:1px solid #e5e7eb;" /></td></tr>
 
-    <!-- ── FEATURE 3 : Orders dashboard ── -->
+    <!-- FEATURE 3 -->
     <tr>
-      <td style="padding:32px 40px 24px;">
-        <p style="margin:0 0 6px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#ff4d00;">Suivi des commandes</p>
-        <h2 style="margin:0 0 10px;font-size:20px;font-weight:800;color:#111827;">📊 Tableau de bord en temps réel</h2>
-        <p style="margin:0 0 18px;color:#6b7280;font-size:14px;line-height:1.7;">
-          Suivez chaque commande par table, de la réception jusqu'au paiement. Statuts en direct, chrono par commande, workflow complet — zéro oubli.
-        </p>
-        <img src="${SITE_URL}/ordersDashboard.png" alt="Dashboard commandes SwipyEat" width="520" style="display:block;margin:0 auto;border-radius:14px;box-shadow:0 8px 28px rgba(0,0,0,0.12);max-width:100%;" />
+      <td style="padding:28px 40px;">
+        <table width="100%" cellpadding="0" cellspacing="0">
+          <tr>
+            <td style="vertical-align:top;padding-right:20px;">
+              <p style="margin:0 0 4px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#ff4d00;">Commandes</p>
+              <h2 style="margin:0 0 8px;font-size:18px;font-weight:800;color:#111827;">📊 Tableau de bord live</h2>
+              <p style="margin:0;color:#374151;font-size:14px;line-height:1.75;">
+                Suivez chaque commande par table, de la réception au paiement. Statuts en direct, chrono par commande — zéro oubli.
+              </p>
+            </td>
+            <td style="vertical-align:top;width:110px;">
+              <img src="${SITE_URL}/ordersDashboard.png" alt="Dashboard commandes" width="100" style="border-radius:14px;box-shadow:0 4px 16px rgba(0,0,0,0.13);display:block;" />
+            </td>
+          </tr>
+        </table>
       </td>
     </tr>
 
-    <!-- ── SECTION DIVIDER ── -->
-    <tr><td style="padding:0 40px;"><hr style="border:none;border-top:1px solid #e5e7eb;margin:0;" /></td></tr>
+    <!-- DIVIDER -->
+    <tr><td style="padding:0 40px;"><hr style="border:none;border-top:1px solid #e5e7eb;" /></td></tr>
 
-    <!-- ── FEATURE 4 : Waiter app ── -->
+    <!-- FEATURE 4 -->
     <tr>
-      <td style="padding:32px 40px 24px;">
-        <p style="margin:0 0 6px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#5c9b01;">Application serveurs</p>
-        <h2 style="margin:0 0 10px;font-size:20px;font-weight:800;color:#111827;">🧑‍🍳 Vos serveurs, toujours connectés</h2>
-        <p style="margin:0 0 18px;color:#6b7280;font-size:14px;line-height:1.7;">
-          Gestion des tables, alertes cuisine, prise de commande rapide — tout depuis leur téléphone. Vos équipes gagnent en efficacité et vos clients en satisfaction.
-        </p>
-        <img src="${SITE_URL}/waitersScreens.png" alt="Application serveurs SwipyEat" width="420" style="display:block;margin:0 auto;border-radius:14px;box-shadow:0 8px 28px rgba(0,0,0,0.12);max-width:100%;" />
+      <td style="padding:28px 40px;">
+        <table width="100%" cellpadding="0" cellspacing="0">
+          <tr>
+            <td style="vertical-align:top;width:110px;padding-right:20px;">
+              <img src="${SITE_URL}/waitersScreens.png" alt="App serveurs" width="100" style="border-radius:14px;box-shadow:0 4px 16px rgba(0,0,0,0.13);display:block;" />
+            </td>
+            <td style="vertical-align:top;">
+              <p style="margin:0 0 4px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#5c9b01;">Serveurs</p>
+              <h2 style="margin:0 0 8px;font-size:18px;font-weight:800;color:#111827;">🧑‍🍳 App serveurs</h2>
+              <p style="margin:0;color:#374151;font-size:14px;line-height:1.75;">
+                Gestion des tables, alertes cuisine, prise de commande rapide — tout depuis leur téléphone. Vos équipes gagnent en efficacité.
+              </p>
+            </td>
+          </tr>
+        </table>
       </td>
     </tr>
 
-    <!-- ── SECTION DIVIDER ── -->
-    <tr><td style="padding:0 40px;"><hr style="border:none;border-top:1px solid #e5e7eb;margin:0;" /></td></tr>
+    <!-- DIVIDER -->
+    <tr><td style="padding:0 40px;"><hr style="border:none;border-top:1px solid #e5e7eb;" /></td></tr>
 
-    <!-- ── FEATURE 5 : KDS ── -->
+    <!-- FEATURE 5 -->
     <tr>
-      <td style="padding:32px 40px 24px;">
-        <p style="margin:0 0 6px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#ff4d00;">Écran cuisine</p>
-        <h2 style="margin:0 0 10px;font-size:20px;font-weight:800;color:#111827;">👨‍🍳 KDS — Kitchen Display System</h2>
-        <p style="margin:0 0 18px;color:#6b7280;font-size:14px;line-height:1.7;">
-          Les commandes arrivent directement sur l'écran cuisine. Vos chefs voient les priorités, les notes spéciales et marquent chaque plat prêt en un tap — sans ticket papier.
-        </p>
-        <img src="${SITE_URL}/kds.png" alt="KDS SwipyEat" width="420" style="display:block;margin:0 auto;border-radius:14px;box-shadow:0 8px 28px rgba(0,0,0,0.12);max-width:100%;" />
+      <td style="padding:28px 40px;">
+        <table width="100%" cellpadding="0" cellspacing="0">
+          <tr>
+            <td style="vertical-align:top;padding-right:20px;">
+              <p style="margin:0 0 4px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#ff4d00;">Écran cuisine</p>
+              <h2 style="margin:0 0 8px;font-size:18px;font-weight:800;color:#111827;">👨‍🍳 Kitchen Display</h2>
+              <p style="margin:0;color:#374151;font-size:14px;line-height:1.75;">
+                Les commandes arrivent directement sur l'écran cuisine. Vos chefs voient les priorités et marquent chaque plat prêt en un tap — sans ticket papier.
+              </p>
+            </td>
+            <td style="vertical-align:top;width:110px;">
+              <img src="${SITE_URL}/kds.png" alt="KDS" width="100" style="border-radius:14px;box-shadow:0 4px 16px rgba(0,0,0,0.13);display:block;" />
+            </td>
+          </tr>
+        </table>
       </td>
     </tr>
 
-    <!-- ── CTA ── -->
+    <!-- CTA -->
     <tr>
-      <td style="padding:32px 40px 40px;text-align:center;background:#f9fafb;">
-        <p style="margin:0 0 20px;font-size:18px;font-weight:800;color:#111827;">Prêt à digitaliser votre restaurant ?</p>
+      <td style="padding:32px 40px 40px;text-align:center;background:#f9fafb;border-top:1px solid #e5e7eb;">
+        <p style="margin:0 0 20px;font-size:20px;font-weight:800;color:#111827;">Prêt à digitaliser votre restaurant ?</p>
         <table cellpadding="0" cellspacing="0" style="margin:0 auto;">
           <tr>
             <td style="padding-right:12px;">
@@ -141,7 +179,7 @@ export async function sendWelcomeEmail(to: string): Promise<void> {
               </a>
             </td>
             <td>
-              <a href="${SITE_URL}/catalogue.pdf" style="display:inline-block;background:#ffffff;color:#5c9b01;font-weight:700;font-size:15px;padding:13px 28px;border-radius:12px;text-decoration:none;border:2px solid #5c9b01;">
+              <a href="${SITE_URL}/catalogue.pdf" style="display:inline-block;background:#fff;color:#5c9b01;font-weight:700;font-size:15px;padding:13px 28px;border-radius:12px;text-decoration:none;border:2px solid #5c9b01;">
                 Voir le catalogue
               </a>
             </td>
@@ -150,7 +188,7 @@ export async function sendWelcomeEmail(to: string): Promise<void> {
       </td>
     </tr>
 
-    <!-- ── FOOTER ── -->
+    <!-- FOOTER -->
     <tr>
       <td style="background:#f3f4f6;padding:20px 40px;text-align:center;border-top:1px solid #e5e7eb;">
         <p style="margin:0 0 6px;color:#9ca3af;font-size:12px;line-height:1.6;">
