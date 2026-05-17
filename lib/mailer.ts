@@ -31,7 +31,7 @@ export async function sendWelcomeEmail(to: string): Promise<void> {
     <!-- HEADER -->
     <tr>
       <td style="background:linear-gradient(135deg,#5c9b01 0%,#4a7f01 100%);padding:30px 40px;text-align:center;">
-        <img src="${SITE_URL}/logo-swipyeat.png" alt="SwipyEat" width="150" style="display:block;margin:0 auto;max-height:52px;object-fit:contain;" />
+        <img src="${SITE_URL}/logo.png" alt="SwipyEat" width="150" style="display:block;margin:0 auto;max-height:52px;object-fit:contain;" />
       </td>
     </tr>
     <tr><td style="background:#ff4d00;height:4px;font-size:0;line-height:0;">&nbsp;</td></tr>
