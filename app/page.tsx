@@ -58,7 +58,7 @@ export default function HomePage() {
       {/* Header */}
       <header className="w-full px-6 py-4 flex justify-center border-b bg-white/80 backdrop-blur-sm sticky top-0 z-10" style={{ borderColor: "#e8f5d0" }}>
         <Image
-          src="/logo-swipyeat.png"
+          src="/logo.avif"
           alt="SwipyEat"
           width={160}
           height={48}
