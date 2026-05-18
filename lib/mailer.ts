@@ -30,8 +30,8 @@ export async function sendWelcomeEmail(to: string): Promise<void> {
 
     <!-- HEADER -->
     <tr>
-      <td style="background:linear-gradient(135deg,#5c9b01 0%,#4a7f01 100%);padding:30px 40px;text-align:center;">
-        <img src="${SITE_URL}/logo.avif" alt="SwipyEat" width="150" style="display:block;margin:0 auto;max-height:52px;object-fit:contain;" />
+      <td style="padding:30px 40px;text-align:center;">
+        <img src="https://res.cloudinary.com/dwimxtsz5/image/upload/v1779102469/logo_ptp9nn.png" alt="SwipyEat" width="170" style="display:block;margin:0 auto;max-height:66px;object-fit:contain;" />
       </td>
     </tr>
     <tr><td style="background:#ff4d00;height:4px;font-size:0;line-height:0;">&nbsp;</td></tr>
@@ -62,7 +62,7 @@ export async function sendWelcomeEmail(to: string): Promise<void> {
           <p style="margin:0 0 6px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#ff4d00;">Pour vos clients</p>
           <h2 style="margin:0 0 20px;font-size:24px;font-weight:800;color:#111827;">📱 Menu digital</h2>
         </div>
-        <img src="${SITE_URL}/interfaceclient.avif" alt="Interface client" width="600" style="width:100%;max-width:600px;height:auto;display:block;margin:0 0 20px;" />
+        <img src="https://res.cloudinary.com/dwimxtsz5/image/upload/v1779101839/interfaceclient_aotoga.png" alt="Interface client" width="600" style="width:100%;max-width:600px;height:auto;display:block;margin:0 0 20px;" />
         <p style="margin:0;padding:0 40px;color:#374151;font-size:15px;line-height:1.75;text-align:left;">
           Vos clients scannent le QR code et accèdent instantanément à votre menu avec photos et prix — en quelques secondes, sans friction.
         </p>
@@ -72,39 +72,6 @@ export async function sendWelcomeEmail(to: string): Promise<void> {
     <!-- DIVIDER -->
     <tr><td style="padding:0 40px;"><hr style="border:none;border-top:1px solid #e5e7eb;" /></td></tr>
 
-    <!-- FEATURE 2 -->
-    <tr>
-      <td style="padding:36px 0 20px;">
-        <div style="padding:0 40px;text-align:left;">
-          <p style="margin:0 0 6px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#5c9b01;">Gestion du menu</p>
-          <h2 style="margin:0 0 20px;font-size:24px;font-weight:800;color:#111827;">🍽️ Gérez vos plats</h2>
-        </div>
-        <img src="${SITE_URL}/menuItems.avif" alt="Gestion menu" width="600" style="width:100%;max-width:600px;height:auto;display:block;margin:0 0 20px;" />
-        <p style="margin:0;padding:0 40px;color:#374151;font-size:15px;line-height:1.75;text-align:left;">
-          Ajoutez, modifiez ou désactivez vos articles en temps réel. Les changements sont visibles immédiatement — plus besoin de réimprimer.
-        </p>
-      </td>
-    </tr>
-
-    <!-- DIVIDER -->
-    <tr><td style="padding:0 40px;"><hr style="border:none;border-top:1px solid #e5e7eb;" /></td></tr>
-
-    <!-- FEATURE 3 -->
-    <tr>
-      <td style="padding:36px 0 20px;">
-        <div style="padding:0 40px;text-align:left;">
-          <p style="margin:0 0 6px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#ff4d00;">Commandes</p>
-          <h2 style="margin:0 0 20px;font-size:24px;font-weight:800;color:#111827;">📊 Tableau de bord live</h2>
-        </div>
-        <img src="${SITE_URL}/ordersDashboard.avif" alt="Dashboard commandes" width="600" style="width:100%;max-width:600px;height:auto;display:block;margin:0 0 20px;" />
-        <p style="margin:0;padding:0 40px;color:#374151;font-size:15px;line-height:1.75;text-align:left;">
-          Suivez chaque commande par table, de la réception au paiement. Statuts en direct, chrono par commande — zéro oubli.
-        </p>
-      </td>
-    </tr>
-
-    <!-- DIVIDER -->
-    <tr><td style="padding:0 40px;"><hr style="border:none;border-top:1px solid #e5e7eb;" /></td></tr>
 
     <!-- FEATURE 4 -->
     <tr>
@@ -113,7 +80,7 @@ export async function sendWelcomeEmail(to: string): Promise<void> {
           <p style="margin:0 0 6px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#5c9b01;">Serveurs</p>
           <h2 style="margin:0 0 20px;font-size:24px;font-weight:800;color:#111827;">🧑‍🍳 App serveurs</h2>
         </div>
-        <img src="${SITE_URL}/waitersScreens.avif" alt="App serveurs" width="600" style="width:100%;max-width:600px;height:auto;display:block;margin:0 0 20px;" />
+        <img src="https://res.cloudinary.com/dwimxtsz5/image/upload/v1779102248/waitersScreens_uukxw8.png" alt="App serveurs" width="600" style="width:100%;max-width:600px;height:auto;display:block;margin:0 0 20px;" />
         <p style="margin:0;padding:0 40px;color:#374151;font-size:15px;line-height:1.75;text-align:left;">
           Gestion des tables, alertes cuisine, prise de commande rapide — tout depuis leur téléphone. Vos équipes gagnent en efficacité.
         </p>
@@ -130,12 +97,48 @@ export async function sendWelcomeEmail(to: string): Promise<void> {
           <p style="margin:0 0 6px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#ff4d00;">Écran cuisine</p>
           <h2 style="margin:0 0 20px;font-size:24px;font-weight:800;color:#111827;">👨‍🍳 Kitchen Display</h2>
         </div>
-        <img src="${SITE_URL}/kds.avif" alt="KDS" width="600" style="width:100%;max-width:600px;height:auto;display:block;margin:0 0 20px;" />
+        <img src="https://res.cloudinary.com/dwimxtsz5/image/upload/v1779101839/kds_amihuf.png" alt="KDS" width="600" style="width:100%;max-width:600px;height:auto;display:block;margin:0 0 20px;" />
         <p style="margin:0;padding:0 40px;color:#374151;font-size:15px;line-height:1.75;text-align:left;">
           Les commandes arrivent directement sur l'écran cuisine. Vos chefs voient les priorités et marquent chaque plat prêt en un tap — sans ticket papier.
         </p>
       </td>
     </tr>
+    
+    <!-- FEATURE 2 -->
+    <tr>
+      <td style="padding:36px 0 20px;">
+        <div style="padding:0 40px;text-align:left;">
+          <p style="margin:0 0 6px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#5c9b01;">Gestion du menu</p>
+          <h2 style="margin:0 0 20px;font-size:24px;font-weight:800;color:#111827;">🍽️ Gérez vos plats</h2>
+        </div>
+        <img src="https://res.cloudinary.com/dwimxtsz5/image/upload/v1779101839/menuItems_nt4cdy.png" alt="Gestion menu" width="600" style="width:100%;max-width:600px;height:auto;display:block;margin:0 0 20px;" />
+        <p style="margin:0;padding:0 40px;color:#374151;font-size:15px;line-height:1.75;text-align:left;">
+          Ajoutez, modifiez ou désactivez vos articles en temps réel. Les changements sont visibles immédiatement — plus besoin de réimprimer.
+        </p>
+      </td>
+    </tr>
+
+    <!-- DIVIDER -->
+    <tr><td style="padding:0 40px;"><hr style="border:none;border-top:1px solid #e5e7eb;" /></td></tr>
+
+    <!-- FEATURE 3 -->
+    <tr>
+      <td style="padding:36px 0 20px;">
+        <div style="padding:0 40px;text-align:left;">
+          <p style="margin:0 0 6px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#ff4d00;">Commandes</p>
+          <h2 style="margin:0 0 20px;font-size:24px;font-weight:800;color:#111827;">📊 Tableau de bord live</h2>
+        </div>
+        <img src="https://res.cloudinary.com/dwimxtsz5/image/upload/v1779101839/ordersDashboard_awwy1y.png" alt="Dashboard commandes" width="600" style="width:100%;max-width:600px;height:auto;display:block;margin:0 0 20px;" />
+        <p style="margin:0;padding:0 40px;color:#374151;font-size:15px;line-height:1.75;text-align:left;">
+          Suivez chaque commande par table, de la réception au paiement. Statuts en direct, chrono par commande — zéro oubli.
+        </p>
+      </td>
+    </tr>
+
+    <!-- DIVIDER -->
+    <tr><td style="padding:0 40px;"><hr style="border:none;border-top:1px solid #e5e7eb;" /></td></tr>
+
+    
 
     <!-- PRICING SECTION HEADER -->
     <tr>
